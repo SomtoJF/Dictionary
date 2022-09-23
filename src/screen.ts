@@ -5,7 +5,7 @@ type ScreenInterface =
     node: HTMLElement;
     clear: any;
     error: any;
-    clearError :any;
+    home :any;
 }
 
 function results(node:HTMLElement):ScreenInterface
@@ -18,20 +18,29 @@ function results(node:HTMLElement):ScreenInterface
     function error()
     {
         clear();
+        clearBackground();
         node.classList.add('error');
     };
 
-    function clearError()
+    function clearBackground()
     {
         clear();
         node.classList.remove('error');
+        node.classList.remove('home');
+    }
+
+    function home()
+    {
+        clear();
+        clearBackground();
+        node.classList.add('home');
     }
 
     return{
         node,
         clear,
         error,
-        clearError
+        home
     };
 };
 
