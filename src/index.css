@@ -129,7 +129,7 @@ nav button[type = 'submit']
     }
 }
 
-@media (prefers-color-scheme) 
+@media (prefers-color-scheme: dark) 
 {
     :root
     {
