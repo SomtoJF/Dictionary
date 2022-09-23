@@ -1,8 +1,10 @@
+let resultsContainer = document.getElementById('results');
+
 type ScreenInterface = 
 {
     node: HTMLElement;
     clear: any;
-    displayError: any;
+    error: any;
     clearError :any;
 }
 
@@ -13,7 +15,7 @@ function results(node:HTMLElement):ScreenInterface
         node.innerHTML = "";
     };
 
-    function displayError()
+    function error()
     {
         clear();
         node.classList.add('error');
@@ -28,9 +30,10 @@ function results(node:HTMLElement):ScreenInterface
     return{
         node,
         clear,
-        displayError,
+        error,
         clearError
     };
 };
 
-export default results;
+const display = results(resultsContainer);
+export default display ;
