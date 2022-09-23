@@ -40,6 +40,7 @@ nav
     font-size: 2rem;
     font-weight: 500;
     color: #5D3FD3;
+    padding-left: 5px;
 }
 
 nav > form
@@ -80,12 +81,22 @@ nav button[type = 'submit']
     width: 100%;
 }
 
+.error, .home
+{
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .error
 {
     background-image: url('./images/error.svg');
-    background-repeat: no-repeat;
-    background-position: center;
     background-size: 100%;
+}
+
+.home
+{
+    background-image: url('./images/search.svg');
+    background-size: contain;
 }
 
 @media all and (max-width: 300px) {
