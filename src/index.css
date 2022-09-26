@@ -1,140 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
-:root
-{
-    --logo-font: 'Ms Madi', cursive;
-    font-size: 16px;
-    --purple: #5D3FD3;
-    --light: white;
-    --grey: #36454F;
-    --backgroundColor: var(--light);
-    --textColor: var(--grey);
-    --emphasisColor: var(--purple);
+@import url("https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap");
+:root {
+  --logo-font: "Ms Madi", cursive;
+  font-size: 16px;
+  --purple: #6c63ff;
+  --light: white;
+  --grey: #36454f;
+  --backgroundColor: var(--light);
+  --textColor: var(--grey);
+  --emphasisColor: var(--purple);
 }
-body, html
-{
-    margin: 0px;
-    padding: 0px;
-}
-
-body
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--backgroundColor);
-    color: var(--textColor);
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
-#content
-{
-    width: max(50%, 350px);
-    height: 100vh;
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--backgroundColor);
+  color: var(--textColor);
 }
 
-nav
-{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: transparent;
-    position: fixed;
-    width: max(50%, 350px);
-    height: 10%;
+#content {
+  width: max(50%, 350px);
+  height: 100vh;
 }
 
-#logo
-{
-    font-family: var(--logo-font), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 2rem;
-    font-weight: 500;
-    color: var(--emphasisColor);
-    padding-left: 5px;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
+  position: fixed;
+  width: max(50%, 350px);
+  height: 10%;
 }
 
-nav > form
-{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    width: max-content;
+#logo {
+  font-family: var(--logo-font), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--emphasisColor);
+  padding-left: 5px;
 }
 
-nav input
-{
-    border-radius: 15px;
-    border: none;
-    background-color: #E5E4E2;
-    height: 20px;
-    padding-left: 5px;
+nav > form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: max-content;
 }
 
-nav button[type = 'submit']
-{
-    height: 25px;
-    width: 25px;
-    border-radius: 50%;
-    border: none;
-    background-color: #E5E4E2;
-    background-image: url('./images/magnify.png');
-    background-position: center;
-    background-size: 80%;
-    background-repeat: no-repeat;
+nav input {
+  border-radius: 15px;
+  border: none;
+  background-color: #e5e4e2;
+  height: 20px;
+  padding-left: 5px;
 }
 
-#results
-{
-    margin-top: 10vh;
-    height: 90vh;
-    width: 100%;
+nav button[type="submit"] {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e5e4e2;
+  background-image: url("./images/magnify.png");
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
 }
 
-.error, .home
-{
-    background-repeat: no-repeat;
-    background-position: center;
+#results {
+  margin-top: 10vh;
+  height: 90vh;
+  width: 100%;
 }
 
-.error
-{
-    background-image: url('./images/error.svg');
-    background-size: 100%;
+.error,
+.home {
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.home
-{
-    background-image: url('./images/search.svg');
-    background-size: contain;
+.error {
+  background-image: url("./images/error.svg");
+  background-size: 100%;
+}
+
+.error > div {
+  color: var(--emphasisColor);
+  font-size: 1.5rem;
+  position: relative;
+  top: 70%;
+  width: 100%;
+  left: 50%;
+  margin-left: -25%;
+}
+
+.home {
+  background-image: url("./images/search.svg");
+  background-size: contain;
 }
 
 @media all and (max-width: 300px) {
-    #content
-    {
-        width: 250px;
-    }
+  #content {
+    width: 250px;
+  }
 
-    nav
-    {
-        width: 250px;
-    }
+  nav {
+    width: 250px;
+  }
 
-    #logo
-    {
-        font-size: 1.5rem;
-    }
+  #logo {
+    font-size: 1.5rem;
+  }
 
-    nav input
-    {
-        width: 120px;
-    }
+  nav input {
+    width: 120px;
+  }
 }
 
-@media (prefers-color-scheme: dark) 
-{
-    :root
-    {
-        --backgroundColor: var(--grey);
-        --textColor: var(--light);
-        --emphasisColor: #F8C8DC;
-    }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --backgroundColor: #181818;
+    --textColor: var(--light);
+    --emphasisColor: var(--purple);
+  }
 }
