@@ -1,10 +1,12 @@
 let resultsContainer = document.getElementById("results");
+import displayResults from './displayResults'
 
 type ScreenInterface = {
   node: HTMLElement;
   clear: any;
   error: any;
   home: any;
+  results: any;
 };
 
 function results(node: HTMLElement): ScreenInterface {
@@ -16,6 +18,7 @@ function results(node: HTMLElement): ScreenInterface {
     clear();
     clearBackground();
     node.classList.add("error");
+    node.innerHTML = '<div>word not found<div>';
   }
 
   function clearBackground() {
@@ -30,11 +33,18 @@ function results(node: HTMLElement): ScreenInterface {
     node.classList.add("home");
   }
 
+  function results(object:any) {
+    clear();
+    clearBackground();
+    displayResults(object);
+  }
+
   return {
     node,
     clear,
     error,
     home,
+    results
   };
 }
 
