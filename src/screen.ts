@@ -1,5 +1,5 @@
 let resultsContainer = document.getElementById("results");
-import displayResults from './displayResults'
+import {sortResponse, show} from './displayResults'
 
 type ScreenInterface = {
   node: HTMLElement;
@@ -34,9 +34,11 @@ function results(node: HTMLElement): ScreenInterface {
   }
 
   function results(object:any) {
+    const response = sortResponse(object);
     clear();
     clearBackground();
-    displayResults(object);
+    show(response.Name);
+    show(response.Sound);
   }
 
   return {
