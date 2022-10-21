@@ -7,12 +7,22 @@ function show(text:string)
     resultsContainer.appendChild(container);
 };
 
-function sortResponse(object:any)
+function sortResponse(list:any)
 {
+    function getPartsOfSpeech(list:any)
+    {
+        const resultArray = [];
+        for(let i = 0; i < list.length; i++)
+        {
+            resultArray[resultArray.length] = list[0].meanings[0].partOfSpeech;
+        };
+        return resultArray;
+    }
+    const partsOfSpeech = getPartsOfSpeech(list);
     return{
-        Name: object[0].word,
-        Sound: object[0].phonetic,
-        
+        Name: list[0].word,
+        Sound: list[0].phonetic,
+        PartsOfSpeech: partsOfSpeech
     };
 };
 
