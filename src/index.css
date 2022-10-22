@@ -91,23 +91,36 @@ nav button[type="submit"] {
 }
 
 .error {
+  box-sizing: border-box;
   background-image: url("./images/error.svg");
   background-size: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10% 0px;
 }
 
 .error > div {
   color: var(--emphasisColor);
   font-size: 1.5rem;
-  position: relative;
-  top: 70%;
   width: 100%;
-  left: 50%;
-  margin-left: -25%;
+  text-align: center;
+  font-family: var(--title-font), "Times New Roman", Times, serif;
 }
 
 .home {
   background-image: url("./images/search.svg");
   background-size: contain;
+}
+
+#word {
+  font-family: var(--title-font), Georgia, "Times New Roman", Times, serif;
+  font-size: 3rem;
+}
+
+#sound {
+  color: var(--emphasisColor);
 }
 
 @media all and (max-width: 300px) {
