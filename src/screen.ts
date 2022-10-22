@@ -1,6 +1,7 @@
 let resultsContainer = document.getElementById("results");
 const information = document.getElementById("information");
 import {sortResponse, show} from './displayResults'
+import {createContainers} from './DOM';
 
 type ScreenInterface = {
   node: HTMLElement;
@@ -46,13 +47,14 @@ function results(node: HTMLElement): ScreenInterface {
   function results(object:any) {
     let soundContainer = document.getElementById('sound');
     let wordContainer = document.getElementById('word');
+    let speechContainer = document.getElementById('speech');
 
     const response = sortResponse(object);
     unhide();
     clearBackground();
     show(response.Name, wordContainer);
     show(response.Sound, soundContainer);
-    
+    createContainers(response.PartsOfSpeech, speechContainer , 'button');
   }
 
   return {
