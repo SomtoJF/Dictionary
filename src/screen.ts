@@ -54,6 +54,7 @@ function results(node: HTMLElement): ScreenInterface {
     clearBackground();
     show(response.Name, wordContainer);
     show(response.Sound, soundContainer);
+    speechContainer.innerHTML = '';
     createContainers(response.PartsOfSpeech, speechContainer , 'button');
   }
 
