@@ -1,15 +1,12 @@
-let resultsContainer = document.getElementById('results');
-import { createContainer } from "./DOM";
-
-function show(text:string)
+function show(text:string, container:HTMLElement):HTMLElement
 {
-    const container = createContainer(text);
-    resultsContainer.appendChild(container);
+    container.textContent = text;
+    return container;
 };
 
 function sortResponse(list:any)
 {
-    function getPartsOfSpeech(list:any)
+    function getPartsOfSpeech(list:any):Array<string>
     {
         const resultArray = [];
         for(let i = 0; i < list.length; i++)
