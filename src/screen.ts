@@ -1,4 +1,5 @@
 let resultsContainer = document.getElementById("results");
+const information = document.getElementById("information");
 import {sortResponse, show} from './displayResults'
 
 type ScreenInterface = {
@@ -7,6 +8,8 @@ type ScreenInterface = {
   error: any;
   home: any;
   results: any;
+  hide: any;
+  unhide: any;
 };
 
 function results(node: HTMLElement): ScreenInterface {
@@ -14,31 +17,42 @@ function results(node: HTMLElement): ScreenInterface {
     node.innerHTML = "";
   }
 
+  function hide() {
+    information.style.display = 'none';
+  }
+
+  function unhide(){
+    information.style.display = 'flex';
+  }
+
   function error() {
-    clear();
+    hide();
     clearBackground();
     node.classList.add("error");
     node.innerHTML = '<div>word not found<div>';
   }
 
   function clearBackground() {
-    clear();
     node.classList.remove("error");
     node.classList.remove("home");
   }
 
   function home() {
-    clear();
+    hide();
     clearBackground();
     node.classList.add("home");
   }
 
   function results(object:any) {
+    let soundContainer = document.getElementById('sound');
+    let wordContainer = document.getElementById('word');
+
     const response = sortResponse(object);
-    clear();
+    unhide();
     clearBackground();
-    show(response.Name);
-    show(response.Sound);
+    show(response.Name, wordContainer);
+    show(response.Sound, soundContainer);
+    
   }
 
   return {
@@ -46,7 +60,9 @@ function results(node: HTMLElement): ScreenInterface {
     clear,
     error,
     home,
-    results
+    results,
+    hide,
+    unhide
   };
 }
 
