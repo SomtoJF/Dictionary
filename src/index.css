@@ -84,6 +84,15 @@ nav button[type="submit"] {
   width: 100%;
 }
 
+#information {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
 .error,
 .home {
   background-repeat: no-repeat;
