@@ -123,6 +123,13 @@ nav button[type="submit"] {
   background-size: contain;
 }
 
+#head {
+  width: max(50%, 350px);
+  position: fixed;
+  height: 20%;
+  font-size: 1rem;
+}
+
 #word {
   font-family: var(--title-font), Georgia, "Times New Roman", Times, serif;
   font-size: 3rem;
@@ -136,8 +143,11 @@ nav button[type="submit"] {
   display: flex;
   justify-content: flex-start;
   border: solid 1px var(--emphasisColor);
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 #speech button {
