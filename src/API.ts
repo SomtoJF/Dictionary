@@ -11,15 +11,9 @@ async function getDefinition(word: string)
       }
     );
 
-    if(response.status == 200)
-    {
-      response = await response.json();
-      display.results(response);
-    }
-
-    else{
-      display.error();
-    }
+    response = await response.json();
+    display.results(response);
+    // console.log(response);
   } 
 
   catch (response) 
