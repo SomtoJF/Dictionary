@@ -10,10 +10,12 @@ function displayDefinitions(array:any):any
 {
   let definitionContainer = document.getElementById('definitionList');
   definitionContainer.innerHTML = '';
-  array.forEach((item:string) => {
-    let def = show(item, document.createElement('li'));
+//   console.log(array);
+  for(let i = 0; i < array.length; i++)
+  {
+    let def = show(array[i], document.createElement('li'));
     definitionContainer.appendChild(def);
-  });
+  };
 };
 
 function sortResponse(list:any)
@@ -31,7 +33,7 @@ function sortResponse(list:any)
                 array[i][j] = list[0].meanings[i].definitions[j].definition;
             };
         };
-        console.log(array);
+        // console.log(array);
         return array;
     };
     function getPartsOfSpeech(list:any):Array<string>
