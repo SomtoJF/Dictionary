@@ -82,12 +82,15 @@ nav button[type="submit"] {
 
 #results {
   margin-top: 10vh;
+  padding: 0px;
   height: 90vh;
   width: 100%;
 }
 
 #information {
   box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -186,7 +189,8 @@ nav button[type="submit"] {
 
 #information ol {
   margin: 0px;
-  padding-left: 5%;
+  padding: 0px;
+  list-style-position: inside;
 }
 
 @media all and (max-width: 300px) {
