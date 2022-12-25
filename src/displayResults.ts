@@ -5,12 +5,10 @@ function show(text:string, container:HTMLElement):HTMLElement
 };
 
 // displayDefinitions() takes an array of definitions, iterates through it and displays them in list tags <li>
-
 function displayDefinitions(array:any):any
 {
   let definitionContainer = document.getElementById('definitionList');
   definitionContainer.innerHTML = '';
-//   console.log(array);
   for(let i = 0; i < array.length; i++)
   {
     let def = show(array[i], document.createElement('li'));
@@ -22,6 +20,8 @@ function sortResponse(list:any)
 {
     const partsOfSpeech = getPartsOfSpeech(list);
     const definition = getDefinitions(list);
+
+
     function getDefinitions(list:Array<any>):Array<Array<string>>
     {
         let array = [];
@@ -33,9 +33,9 @@ function sortResponse(list:any)
                 array[i][j] = list[0].meanings[i].definitions[j].definition;
             };
         };
-        // console.log(array);
         return array;
     };
+    
     function getPartsOfSpeech(list:any):Array<string>
     {
         const resultArray = [];
@@ -45,6 +45,7 @@ function sortResponse(list:any)
         };
         return resultArray;
     };
+
     return{
         Name: list[0].word,
         Sound: list[0].phonetic,
