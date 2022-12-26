@@ -1,6 +1,6 @@
 let resultsContainer = document.getElementById("results");
 const information = document.getElementById("information");
-import {sortResponse, show, displayDefinitions} from './displayResults';
+import {sortResponse, show, displayTextInList} from './displayResults';
 import {createContainers} from './DOM';
 
 type ScreenInterface = {
@@ -30,7 +30,6 @@ function results(node: HTMLElement): ScreenInterface {
     hide();
     clearBackground();
     node.classList.add("error");
-    // node.innerHTML = '<div>word not found<div>';
   }
 
   function clearBackground() {
@@ -45,9 +44,9 @@ function results(node: HTMLElement): ScreenInterface {
   }
 
   function results(object:any) {
-    let soundContainer = document.getElementById('sound');
-    let wordContainer = document.getElementById('word');
-    let speechContainer = document.getElementById('speech');
+    const soundContainer = document.getElementById('sound');
+    const wordContainer = document.getElementById('word');
+    const speechContainer = document.getElementById('speech');
 
     const response = sortResponse(object);
     clearBackground();
@@ -55,13 +54,17 @@ function results(node: HTMLElement): ScreenInterface {
     show(response.Name, wordContainer);
     show(response.Sound, soundContainer);
     speechContainer.innerHTML = '';
-    let partsOfSpeech:Array<HTMLElement> = createContainers(response.PartsOfSpeech, speechContainer , 'button');
-    displayDefinitions(response.Definitions[0]);
+    const partsOfSpeech:Array<HTMLElement> = createContainers(response.PartsOfSpeech, speechContainer , 'button');
+    displayTextInList(response.Definitions[0], document.getElementById('definitionList'));
+    displayTextInList(response.Synonyms[0], document.getElementById('synonymsList'));
+    displayTextInList(response.Antonyms[0], document.getElementById('antonymsList'));
 
     for(let i = 0; i < partsOfSpeech.length; i++)
     {
       partsOfSpeech[i].addEventListener('click', ()=>{
-        displayDefinitions(response.Definitions[i]);
+        displayTextInList(response.Definitions[i], document.getElementById('definitionList'));
+        displayTextInList(response.Synonyms[i], document.getElementById('synonymsList'));
+        displayTextInList(response.Antonyms[i], document.getElementById('antonymsList'));
 
         partsOfSpeech.forEach((item)=>{
           item.style.backgroundColor = 'transparent';
