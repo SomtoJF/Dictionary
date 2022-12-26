@@ -13,7 +13,6 @@ async function getDefinition(word: string)
 
     response = await response.json();
     display.results(response);
-    // console.log(response);
   } 
 
   catch (response) 
