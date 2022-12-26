@@ -40,7 +40,8 @@ nav {
   background-color: var(--backgroundColor);
   position: fixed;
   width: max(50%, 350px);
-  height: 10%;
+  height: 10vh;
+  margin-bottom: 0px;
 }
 
 #logo {
@@ -134,11 +135,13 @@ nav button[type="submit"] {
   height: 20%;
   font-size: 1rem;
   background-color: var(--backgroundColor);
+  margin: 0px;
 }
 
 #word {
   font-family: var(--title-font), Georgia, "Times New Roman", Times, serif;
   font-size: 3rem;
+  margin: 0px;
 }
 
 #sound {
