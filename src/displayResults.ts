@@ -4,15 +4,14 @@ function show(text:string, container:HTMLElement):HTMLElement
     return container;
 };
 
-// displayDefinitions() takes an array of definitions, iterates through it and displays them in list tags <li>
-function displayDefinitions(array:any):any
+// displayTextInList() takes an array of definitions, iterates through it and displays each definition in list tags <li>
+function displayTextInList(array:Array<any>, parentElement:HTMLElement):void
 {
-  let definitionContainer = document.getElementById('definitionList');
-  definitionContainer.innerHTML = '';
+  parentElement.innerHTML = '';
   for(let i = 0; i < array.length; i++)
   {
     let def = show(array[i], document.createElement('li'));
-    definitionContainer.appendChild(def);
+    parentElement.appendChild(def);
   };
 };
 
@@ -54,7 +53,6 @@ function sortResponse(list:Array<any>)
         {
             synonymArray[i] = list[i].synonyms;
         };
-        console.log(synonymArray);
         return synonymArray;
     };
 
@@ -65,7 +63,6 @@ function sortResponse(list:Array<any>)
         {
             antonymArray[i] = list[i].antonyms;
         };
-        console.log(antonymArray);
         return antonymArray;
     }
 
@@ -83,5 +80,5 @@ function sortResponse(list:Array<any>)
 export {
     sortResponse,
     show,
-    displayDefinitions
+    displayTextInList
 };
