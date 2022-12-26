@@ -16,11 +16,12 @@ function displayDefinitions(array:any):any
   };
 };
 
-function sortResponse(list:any)
+function sortResponse(list:Array<any>)
 {
     const partsOfSpeech = getPartsOfSpeech(list);
     const definition = getDefinitions(list);
-
+    const synonyms = getSynonyms(list[0].meanings);
+    const antonyms = getAntonyms(list[0].meanings);
 
     function getDefinitions(list:Array<any>):Array<Array<string>>
     {
@@ -35,7 +36,7 @@ function sortResponse(list:any)
         };
         return array;
     };
-    
+
     function getPartsOfSpeech(list:any):Array<string>
     {
         const resultArray = [];
@@ -46,11 +47,35 @@ function sortResponse(list:any)
         return resultArray;
     };
 
+    function getSynonyms(list:Array<any>):Array<Array<string>>
+    {
+        let synonymArray = [];
+        for(let i = 0; i < list.length; i++)
+        {
+            synonymArray[i] = list[i].synonyms;
+        };
+        console.log(synonymArray);
+        return synonymArray;
+    };
+
+    function getAntonyms(list:Array<any>):Array<Array<string>>
+    {
+        let antonymArray = [];
+        for(let i = 0; i < list.length; i++)
+        {
+            antonymArray[i] = list[i].antonyms;
+        };
+        console.log(antonymArray);
+        return antonymArray;
+    }
+
     return{
         Name: list[0].word,
         Sound: list[0].phonetic,
         PartsOfSpeech: partsOfSpeech,
-        Definitions: definition
+        Definitions: definition,
+        Synonyms: synonyms,
+        Antonyms: antonyms
     };
 };
 
